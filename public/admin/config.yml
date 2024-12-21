@@ -9,42 +9,28 @@ public_folder: "/uploads"
 local_backend: true
 
 collections:
-  - name: "saglikli-yasam"
-    label: "Sağlıklı Yaşam Yazıları"
-    folder: "content/saglikli-yasam"
+  - name: "beslenme-programlari"
+    label: "Beslenme Programları"
+    folder: "src/content/beslenme-programlari"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
-      - {label: "Yayın Tarihi", name: "date", widget: "datetime", date_format: "DD.MM.YYYY", format: "YYYY-MM-DD"}
-      - {label: "Kapak Resmi", name: "thumbnail", widget: "image"}
-      - {label: "Özet", name: "description", widget: "text"}
-      - {label: "Kategori", name: "category", widget: "select", options: ["beslenme", "egzersiz", "yasam-tarzi", "zihinsel-saglik"]}
-      - {label: "İçerik", name: "body", widget: "markdown"}
-      - {label: "Yazar", name: "author", widget: "string", default: "Diyetisyen"}
-
-  - name: "beslenme-programlari"
-    label: "Beslenme Programları"
-    folder: "content/beslenme-programlari"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Program Adı", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
       - {label: "Program Resmi", name: "thumbnail", widget: "image"}
       - {label: "Kısa Açıklama", name: "description", widget: "text"}
-      - {label: "Program Kategorisi", name: "category", widget: "select", options: ["kilo-verme", "kilo-alma", "ozel-durumlar", "hastaliklar"]}
-      - {label: "Program Detayları", name: "body", widget: "markdown"}
-      - label: "Özellikler"
+      - {label: "Program Tipi", name: "type", widget: "select", options: ["kilo-verme", "kilo-alma", "koruma", "ozel-durum"]}
+      - label: "Program Özellikleri"
         name: "features"
         widget: "list"
         fields:
-          - {label: "Özellik", name: "feature", widget: "string"}
-      - {label: "Fiyat", name: "price", widget: "number"}
-      - {label: "Süre", name: "duration", widget: "string"}
+          - {label: "Özellik", name: "item", widget: "string"}
+      - {label: "Program Detayları", name: "content", widget: "markdown"}
+      - {label: "Program Süresi", name: "duration", widget: "string"}
 
   - name: "fit-tarifler"
     label: "Fit Tarifler"
-    folder: "content/fit-tarifler"
+    folder: "src/content/fit-tarifler"
     create: true
     slug: "{{slug}}"
     fields:
@@ -52,26 +38,8 @@ collections:
       - {label: "Tarif Resmi", name: "thumbnail", widget: "image"}
       - {label: "Kısa Açıklama", name: "description", widget: "text"}
       - {label: "Hazırlama Süresi", name: "prepTime", widget: "string"}
-      - {label: "Pişirme Süresi", name: "cookTime", widget: "string"}
-      - {label: "Porsiyon", name: "servings", widget: "string"}
       - {label: "Kalori", name: "calories", widget: "number"}
       - label: "Malzemeler"
         name: "ingredients"
         widget: "list"
-        field: {label: "Malzeme", name: "ingredient", widget: "string"}
-      - {label: "Yapılışı", name: "body", widget: "markdown"}
-      - {label: "Kategori", name: "category", widget: "select", options: ["kahvalti", "ana-yemek", "tatli", "atistirmalik"]}
-
-  - name: "success-stories"
-    label: "Başarı Hikayeleri"
-    folder: "content/success-stories"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "İsim", name: "title", widget: "string"}
-      - {label: "Öncesi Resim", name: "beforeImage", widget: "image"}
-      - {label: "Sonrası Resim", name: "afterImage", widget: "image"}
-      - {label: "Başarı Özeti", name: "description", widget: "text"}
-      - {label: "Detaylı Hikaye", name: "body", widget: "markdown"}
-      - {label: "Değişim Süresi", name: "duration", widget: "string"}
-      - {label: "Verilen Kilo", name: "weightLoss", widget: "string"}
+      - {label: "Yapılışı", name: "content", widget: "markdown"}
