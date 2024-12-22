@@ -1,27 +1,23 @@
-// content/health-tips/saglikli-uyku.md
 ---
-title: "Sağlıklı Uyku İçin 5 Önemli İpucu"
-date: "2024-12-21"
-description: "Kaliteli bir uyku için uygulayabileceğiniz bilimsel temelli öneriler"
-thumbnail: "/api/placeholder/400/300"
-category: "yasam-tarzi"
-author: "Diyetisyen"
-readTime: 5
+title: "Sağlıklı Uyku Alışkanlıkları"
+description: "Kaliteli bir uyku için uygulamanız gereken önemli ipuçları ve yaşam tarzı değişiklikleri"
+image: "/images/healthy-sleep.jpg"
+category: "Yaşam Tarzı"
+readingTime: "5"
 ---
 
-İyi bir uyku düzeni sağlıklı yaşamın temel taşlarından biridir. İşte size kaliteli uyku için 5 önemli öneri:
+# Sağlıklı Uyku Alışkanlıkları
 
-1. Düzenli Uyku Saati
-Her gün aynı saatte yatmak ve kalkmak, vücudunuzun biyolojik saatini düzenler.
+İyi bir gece uykusu, sağlıklı bir yaşamın temel taşlarından biridir. İşte sağlıklı uyku için öneriler:
 
-2. Karanlık Ortam
-Melatonin salgısı için yatak odanızı mümkün olduğunca karanlık tutun.
+## 1. Düzenli Uyku Saatleri
 
-3. Teknoloji Detoksu
-Yatmadan en az 1 saat önce telefon, tablet gibi cihazlardan uzak durun.
+Her gün aynı saatte yatağa gitmek ve kalkmak, vücudunuzun biyolojik saatini düzenler.
 
-4. Rahat Ortam
-Yatak odanızın sıcaklığını 18-22 derece arasında tutun.
+## 2. Uyku Ortamı
 
-5. Akşam Rutini
-Yatmadan önce rahatlatıcı aktiviteler yapın (kitap okuma, meditasyon vb.).
+- Yatak odanızı karanlık tutun
+- Oda sıcaklığını 18-20°C arasında tutun
+- Gürültüyü minimumda tutun
+
+[Devamı...]
