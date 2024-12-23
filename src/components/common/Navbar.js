@@ -1,11 +1,21 @@
-// src/components/common/Navbar.js
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
+import styles from './navbar.module.css';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const menuItems = [
     { href: '/', label: 'Ana Sayfa' },
@@ -16,21 +26,23 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <nav 
+      className={`${styles.navbar} ${isScrolled ? styles.navbarScrolled : styles.navbarInitial} ${isMenuOpen ? styles.navbarScrolled : ''}`}
+    >
+      <div className="container mx-auto">
+        <div className={styles.navContent}>
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <span className="text-xl font-bold text-blue-600">DiyetUzmanı</span>
+          <Link href="/" className={styles.logo}>
+            DiyetUzmanı
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className={styles.navLinks}>
             {menuItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                className={styles.navLink}
               >
                 {item.label}
               </Link>
@@ -38,35 +50,32 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-blue-600 focus:outline-none"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={styles.mobileMenuButton}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block px-3 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+          <div className={styles.mobileMenu}>
+            {menuItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={styles.mobileNavLink}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
         )}
       </div>

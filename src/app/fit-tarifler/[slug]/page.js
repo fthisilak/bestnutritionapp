@@ -17,12 +17,15 @@ export default async function RecipeDetail({ params }) {
       <article className="max-w-4xl mx-auto">
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4">{recipe.title}</h1>
+          
           {recipe.image && (
-            <img 
-              src={recipe.image} 
-              alt={recipe.title}
-              className="w-full h-[400px] object-cover rounded-lg mb-6"
-            />
+            <div className="relative w-full aspect-[16/9] mb-6">
+              <img
+                src={recipe.image}
+                alt={recipe.title}
+                className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              />
+            </div>
           )}
 
           <div className="grid grid-cols-3 gap-4 mb-6 text-center">
